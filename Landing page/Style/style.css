@@ -149,6 +149,10 @@ button {
   padding: 0.5rem 3rem;
 }
 
+.rando h2 {
+  margin-top: 1em;
+}
+
 .rando-container {
   margin: 40px auto 0 auto;
   margin-top: 0;
@@ -172,7 +176,7 @@ button {
 
 .quote {
   background-color: #e5e7eb;
-  margin-bottom: 2em;
+  margin: 3em 0;
   padding: 3rem;
   display: flex;
   justify-content: center;
@@ -185,6 +189,7 @@ button {
   margin-bottom: 1rem;
   color: #1f2937;
   font-style: italic;
+  max-width: 600px;
 }
 
 .txt-quote cite {
@@ -196,6 +201,7 @@ button {
 .cta {
   margin: 2em;
   padding: 2em;
+  padding-right: 6em;
   border-radius: 9px;
   display: flex;
 }
