@@ -180,7 +180,12 @@ button {
   padding: 3rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+}
+
+.txt-quote {
+  display: flex;
+  flex-direction: column;
 }
 
 .txt-quote p {
@@ -192,8 +197,8 @@ button {
   max-width: 600px;
 }
 
-.txt-quote cite {
-  text-align: left;
+cite {
+  text-align: right;
   font-weight: 700;
   font-style: normal;
 }
