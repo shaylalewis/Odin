@@ -1,0 +1,29 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  img {
+   display: block;
+   margin: 0 auto;
+   height: 450px;
+  }
+
+  h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between; /*Space items: left and right end*/
+    align-items: center; /*Vertically center items */
+    padding: 20px;
+    margin-top: 30%;
+  }
+
+  .nav-link {
+    list-style: none;
+  }
