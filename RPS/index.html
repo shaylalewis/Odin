@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>RPS</title>
+    <script src="/RPS/main.js"></script>
   </head>
-  <body></body>
+  <body>
+    <button onclick="playGame('Rock')">Rock</button>
+    <button onclick="playGame('Paper')">Paper</button>
+    <button onclick="playGame('Scissors')">Scissors</button>
+
+    <!-- Results go here -->
+    <div id="result"></div>
+    <div id="score">You: 0 | Computer: 0</div>
+  </body>
 </html>

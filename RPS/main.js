@@ -1,78 +1,55 @@
-
 function getCompPick() {
     const randomNum = Math.floor(Math.random() * 3) + 1;
 
     if (randomNum === 1) {
-        return "Rock"
+        return "Rock";
     } else if (randomNum === 2) {
-        return "Paper"
+        return "Paper";
     } else {
-        return "Scissors"
+        return "Scissors";
     }
 }
 
-function getHumanPick() {
-    let userPick = prompt("Make a decision")
-    return userPick
+let compScore = 0;
+let humanScore = 0;
+
+function playGame(humanPick) {
+    const computerPick = getCompPick();
+
+    // Call playRound and get a message back
+    const roundMessage = playRound(humanPick, computerPick);
+
+    // Update result area
+    document.getElementById("result").textContent =
+        `You picked ${humanPick}, Computer picked ${computerPick}. ${roundMessage}`;
+
+    // Update score area
+    document.getElementById("score").textContent =
+        `You: ${humanScore} | Computer: ${compScore}`;
 }
 
-
-function playGame() {
-    let compScore = 0
-    let humanScore = 0
-
-    function playRound(humanPick, computerPick) {
-        if (humanPick == computerPick) {
-            console.log("It's a tie.")
-        } else if (humanPick == "Rock" && computerPick == "Paper") {
-            console.log("You lose :(")
-            compScore++
-        } else if (humanPick == "Paper" && computerPick == "Rock") {
-            console.log("You win :)")
-            humanScore++
-        } else if (humanPick == "Rock" && computerPick == "Scissors") {
-            console.log("You win :)")
-            humanScore++
-        } else if (humanPick == "Paper" && computerPick == "Scissors") {
-            console.log("You lose :(")
-            compScore++
-        } else if (humanPick == "Scissors" && computerPick == "Paper") {
-            console.log("You win :)")
-            humanScore++
-        } else if (humanPick == "Scissors" && computerPick == "Rock") {
-            console.log("You lose :(")
-            compScore++
-        } else {
-            console.log("Invalid input")
-        }
-
-        // Print scores
-        console.log(`Score — You: ${humanScore} | Computer: ${compScore}`);
-    }
-
-    // Play 5 rounds
-    for (let round = 1; round <= 5; round++) {
-        console.log(`\n--- Round ${round} ---`);
-
-        let computerPick = getCompPick();
-        let humanPick = getHumanPick();
-
-        console.log("Computer picked:", computerPick);
-        console.log("You picked:", humanPick);
-
-        playRound(humanPick, computerPick);
-    }
-
-    // Final result
-    console.log("\n=== Final Result ===");
-    if (humanScore > compScore) {
-        console.log("🎉 You won the game!");
-    } else if (compScore > humanScore) {
-        console.log("😢 You lost the game.");
+function playRound(humanPick, computerPick) {
+    if (humanPick == computerPick) {
+        return "It's a tie.";
+    } else if (humanPick == "Rock" && computerPick == "Paper") {
+        compScore++;
+        return "You lose :( Paper beats Rock.";
+    } else if (humanPick == "Paper" && computerPick == "Rock") {
+        humanScore++;
+        return "You win :) Paper beats Rock.";
+    } else if (humanPick == "Rock" && computerPick == "Scissors") {
+        humanScore++;
+        return "You win :) Rock beats Scissors.";
+    } else if (humanPick == "Paper" && computerPick == "Scissors") {
+        compScore++;
+        return "You lose :( Scissors beats Paper.";
+    } else if (humanPick == "Scissors" && computerPick == "Paper") {
+        humanScore++;
+        return "You win :) Scissors beats Paper.";
+    } else if (humanPick == "Scissors" && computerPick == "Rock") {
+        compScore++;
+        return "You lose :( Rock beats Scissors.";
     } else {
-        console.log("🤝 It's a tie!");
+        return "Invalid input.";
     }
-
 }
-
-playGame();
